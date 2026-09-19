@@ -133,6 +133,255 @@
     font-style: italic; color: var(--lilac-soft); font-size: 18px; line-height:1.5;
   }
   .callout footer{ margin-top:10px; font-family:'JetBrains Mono', monospace; font-style:normal; font-size:12px; color: var(--muted-2); }
+
+  .photo-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:14px; padding: 14px;
+  }
+  .photo-card img{ width:100%; display:block; border-radius:8px; object-fit:cover; aspect-ratio: 4/5; }
+  .photo-card .cap{ font-family:'JetBrains Mono', monospace; font-size:12px; color: var(--muted-2); padding: 12px 6px 4px; }
+
+  /* ---------- TRAJETORIA / GIT LOG ---------- */
+  .gitlog{ position:relative; padding-left: 28px; }
+  .gitlog::before{ content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background: var(--line); }
+  .commit{ position:relative; padding-bottom: 34px; }
+  .commit:last-child{ padding-bottom:0; }
+  .commit::before{
+    content:""; position:absolute; left:-28px; top:4px; width:11px; height:11px; border-radius:50%;
+    background: var(--bg); border:2px solid var(--violet);
+  }
+  .commit.current::before{ background: var(--green); border-color: var(--green); }
+  .commit-meta{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color: var(--muted-2); margin-bottom:6px; }
+  .commit-meta .hash{ color: var(--lilac); }
+  .commit h3{ font-family:'Fraunces', serif; font-size:19px; font-weight:600; color: var(--text); margin-bottom:5px; }
+  .commit p{ color: var(--muted); font-size:14.5px; max-width: 560px; }
+  .tag{
+    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:11px;
+    background: var(--surface-2); color: var(--lilac); border:1px solid var(--line);
+    padding: 2px 8px; border-radius: 20px; margin-left:8px; vertical-align:2px;
+  }
+
+  /* ---------- ENSINO / STACK ---------- */
+  .teach-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 780px){ .teach-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 480px){ .teach-grid{ grid-template-columns: 1fr; } }
+  .chip{
+    background: var(--surface); border:1px solid var(--line); border-radius:10px; padding: 18px 18px 16px;
+    transition: border-color .2s, transform .2s;
+  }
+  .chip:hover{ border-color: var(--violet); transform: translateY(-2px); }
+  .chip .k{ font-family:'JetBrains Mono', monospace; font-size:11px; color: var(--muted-2); }
+  .chip .v{ font-family:'JetBrains Mono', monospace; font-size:15px; color: var(--lilac-soft); margin-top:4px; }
+
+  .package{
+    margin-top: 40px; background: var(--surface); border:1px solid var(--line); border-radius: 10px; overflow:hidden;
+  }
+  .package .term-bar .term-title{ color: var(--muted-2); }
+  .package pre{
+    padding: 22px; font-family:'JetBrains Mono', monospace; font-size: 13.5px; color: var(--muted);
+    overflow-x:auto; white-space:pre-wrap;
+  }
+  .package .k2{ color: var(--pink); }
+  .package .s2{ color: var(--green); }
+
+  /* ---------- FORMACAO ---------- */
+  .edu-list{ display:flex; flex-direction:column; }
+  .edu-row{
+    display:grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 22px 0; border-bottom:1px solid var(--line);
+  }
+  .edu-row:first-child{ padding-top:0; }
+  .edu-row:last-child{ border-bottom:none; }
+  .edu-date{ font-family:'JetBrains Mono', monospace; font-size:13px; color: var(--muted-2); padding-top:3px; }
+  .edu-info h3{ font-family:'Fraunces', serif; font-weight:600; font-size: 18px; color:var(--text); margin-bottom:4px;}
+  .edu-info .inst{ font-family:'JetBrains Mono', monospace; font-size:12.5px; color: var(--lilac); }
+  .edu-info p{ color: var(--muted); font-size:14px; margin-top:6px; max-width:520px; }
+  @media (max-width: 600px){ .edu-row{ grid-template-columns: 1fr; gap:6px; } }
+
+  /* ---------- CONTATO ---------- */
+  .contact{
+    background: var(--paper); color: var(--paper-ink); border-radius: 20px; padding: 64px 48px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .contact::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 20%, rgba(139,92,246,0.12), transparent 55%);
+  }
+  .contact h2{ font-family:'Fraunces', serif; font-size: clamp(28px,4.5vw,42px); font-weight:600; position:relative; }
+  .contact h2 em{ font-style:italic; color: var(--violet-deep); }
+  .contact p.sub{ margin-top:14px; color:#5c4d78; font-size:16px; position:relative; }
+  .contact-links{ margin-top:34px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
+  .btn{
+    font-family:'JetBrains Mono', monospace; font-size:14px; text-decoration:none;
+    padding: 13px 26px; border-radius: 8px; display:inline-flex; align-items:center; gap:8px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn:focus-visible{ outline:2px solid var(--violet-deep); outline-offset:3px; }
+  .btn-primary{ background: var(--violet-deep); color: white; }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 20px -8px rgba(96,39,201,0.5); }
+  .btn-ghost{ background: transparent; border: 1.5px solid #c9b8ea; color: var(--paper-ink); }
+  .btn-ghost:hover{ border-color: var(--violet-deep); transform: translateY(-2px); }
+
+  footer.site{
+    padding: 34px 0 44px; text-align:center; font-family:'JetBrains Mono', monospace;
+    font-size:12px; color: var(--muted-2);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .eyebrow::before, .cursor{ animation: none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">jessica<span>.arnaut</span></div>
+    <div class="navlinks">
+      <a href="#sobre">sobre</a>
+      <a href="#trajetoria">trajetória</a>
+      <a href="#ensino">ensino</a>
+      <a href="#pesquisa">pesquisa</a>
+      <a href="#contato">contato</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="name">Jéssica <em>Arnaut</em></h1>
+    <p class="role">Professora de Computação <span class="pipe">/</span> Engenheira de Software <span class="pipe">/</span> Pesquisadora em Informática e Educação</p>
+
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="term-dot" style="background:#f0a8d8"></span>
+        <span class="term-dot" style="background:#f5d78b"></span>
+        <span class="term-dot" style="background:#7ee0a8"></span>
+        <span class="term-title">jessica@senai — bio.sh</span>
+      </div>
+      <div class="term-body">
+        <div class="ln"><span class="jkey">const</span> <span class="jvar">jessica</span> = {</div>
+        <div class="out"><span class="jprop">resumo</span>: <span class="jstr">"une prática de mercado ao ensino técnico e superior"</span>,</div>
+        <div class="out"><span class="jprop">especialidades</span>: [<span class="jstr">"metodologias ativas"</span>, <span class="jstr">"Node.js"</span>, <span class="jstr">"bancos de dados"</span>, <span class="jstr">"engenharia de software"</span>, <span class="jstr">"automação de testes"</span>],</div>
+        <div class="out"><span class="jprop">statusAtual</span>: <span class="jstr">"lecionando no SENAI Bahia · mestrado em Ensino de Computação na UFBA"</span></div>
+        <div class="ln">};<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Sobre <span class="accent">mim</span></h2></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Comecei minha carreira em <strong>Tecnologia da Informação</strong>, passando por gestão de sistemas, consultoria educacional e desenvolvimento full-stack. Mas foi na sala de aula que encontrei o meu lugar.</p>
+        <p>Hoje sou <strong>docente de TI no SENAI Bahia</strong>, onde lecino nos cursos técnicos de Desenvolvimento de Sistemas e Informática para Internet, além de orientar um projeto de <strong>iniciação científica e tecnológica</strong>.</p>
+        <p>Sou movida pela prática real do mundo do desenvolvimento e por formar profissionais que saem da sala de aula sabendo programar e lidar com os desafios do trabalho.</p>
+        <div class="callout">
+          "Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção."
+          <footer>— Paulo Freire</footer>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="data:image/jpeg;base64,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
+  a { color: inherit; }
+
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky; top:0; z-index:50;
+    background: rgba(21,15,28,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:16px; padding-bottom:16px; }
+  .logo{ font-family:'JetBrains Mono', monospace; font-weight:600; font-size:15px; color: var(--lilac); letter-spacing:-0.02em; }
+  .logo span{ color: var(--muted-2); }
+  .navlinks{ display:flex; gap:28px; font-family:'JetBrains Mono', monospace; font-size:13px; }
+  .navlinks a{ text-decoration:none; color: var(--muted); transition: color .2s; }
+  .navlinks a:hover{ color: var(--lilac); }
+  .navlinks a:focus-visible{ outline: 2px solid var(--violet); outline-offset:4px; border-radius:2px;}
+  @media (max-width: 640px){ .navlinks{ display:none; } }
+
+  /* ---------- HERO / TERMINAL ---------- */
+  header.hero{ padding: 88px 0 70px; position:relative; overflow:hidden; }
+  header.hero::before{
+    content:""; position:absolute; top:-220px; right:-180px; width:520px; height:520px;
+    background: radial-gradient(circle, rgba(139,92,246,0.28) 0%, rgba(139,92,246,0) 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:13px; color: var(--green);
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:22px;
+  }
+  .eyebrow::before{ content:"●"; font-size:10px; color: var(--green); animation: blink 2.2s infinite; }
+  @keyframes blink{ 0%,100%{opacity:1} 50%{opacity:.25} }
+
+  h1.name{
+    font-family:'Fraunces', serif; font-weight:600; font-size: clamp(40px, 7vw, 72px);
+    letter-spacing:-0.02em; line-height:1.02; color: var(--text);
+  }
+  h1.name em{ font-style:italic; color: var(--lilac); font-weight:500; }
+  .role{
+    font-family:'JetBrains Mono', monospace; color: var(--muted); font-size: clamp(14px,2vw,17px);
+    margin-top:18px; max-width: 640px;
+  }
+  .role .pipe{ color: var(--muted-2); }
+
+  .terminal{
+    margin-top: 46px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  .term-bar{
+    display:flex; align-items:center; gap:8px;
+    padding: 12px 16px; background: var(--surface-2); border-bottom:1px solid var(--line);
+  }
+  .term-dot{ width:11px; height:11px; border-radius:50%; }
+  .term-bar .term-title{
+    margin-left: 10px; font-family:'JetBrains Mono', monospace; font-size:12px; color: var(--muted-2);
+  }
+  .term-body{
+    padding: 24px 22px 26px; font-family:'JetBrains Mono', monospace; font-size: 14px;
+    color: var(--muted);
+  }
+  .term-body .ln{ display:flex; gap:10px; margin-bottom: 10px; flex-wrap:wrap; }
+  .term-body .ln:last-child{ margin-bottom:0; }
+  .prompt{ color: var(--violet); flex-shrink:0; user-select:none; }
+  .cmd{ color: var(--lilac-soft); }
+  .out{ color: var(--muted); padding-left: 22px; }
+  .comment{ color: var(--muted-2); }
+  .key{ color: var(--pink); }
+  .str{ color: var(--green); }
+  .jkey{ color: var(--pink); }
+  .jvar{ color: var(--lilac-soft); }
+  .jprop{ color: var(--lilac); }
+  .jstr{ color: var(--green); }
+  .cursor{ display:inline-block; width:8px; height:16px; background: var(--lilac); animation: blink 1s steps(2) infinite; vertical-align: middle; margin-left:4px; }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ padding: 86px 0; border-top: 1px solid var(--line); }
+  .sec-head{ display:flex; align-items:baseline; gap:14px; margin-bottom: 44px; }
+  .sec-num{ font-family:'JetBrains Mono', monospace; color: var(--muted-2); font-size:14px; }
+  .sec-title{ font-family:'Fraunces', serif; font-size: clamp(26px,4vw,36px); font-weight:600; }
+  .sec-title .accent{ color: var(--lilac); font-style:italic; font-weight:500; }
+  .sec-lede{ color: var(--muted); max-width: 620px; margin-top: -28px; margin-bottom: 40px; font-size:15.5px; }
+
+  /* ---------- SOBRE ---------- */
+  .about-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items:start; }
+  @media (max-width: 780px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-text p{ color: var(--muted); margin-bottom:18px; font-size:16px; }
+  .about-text strong{ color: var(--text); font-weight:600; }
+  .callout{
+    margin-top: 26px; padding: 20px 22px; border-left: 3px solid var(--violet);
+    background: var(--surface); border-radius: 0 8px 8px 0; font-family:'Fraunces', serif;
+    font-style: italic; color: var(--lilac-soft); font-size: 18px; line-height:1.5;
+  }
+  .callout footer{ margin-top:10px; font-family:'JetBrains Mono', monospace; font-style:normal; font-size:12px; color: var(--muted-2); }
 .photo-card{
   background: var(--surface); border:1px solid var(--line); border-radius:14px; padding: 14px;
 }
